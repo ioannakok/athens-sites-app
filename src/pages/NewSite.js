@@ -1,6 +1,10 @@
+import { useHistory } from "react-router";
+
 import NewSiteForm from "../components/layout/sites/NewSiteForm";
 
 function NewSite() { 
+    const history = useHistory();
+
     function addSiteHandler(siteData) {
         fetch(
             'https://athens-sites-app-default-rtdb.firebaseio.com/sites.json',
@@ -11,7 +15,9 @@ function NewSite() {
                     'Content-Type': 'application/json'
                 }
             }
-        );
+        ).then(() => {
+            history.replace('/');
+        });
     }
 
     return <section>
