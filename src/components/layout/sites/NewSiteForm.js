@@ -25,7 +25,7 @@ function NewSiteForm(props) {
             description: enteredDescription    
         };
 
-        console.log(siteData);
+        props.onAddSite(siteData);
     }
 
     return <Card>
